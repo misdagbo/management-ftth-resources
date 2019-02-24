@@ -1,0 +1,25 @@
+<div class="__bar_sub-menu">
+  <ul>
+    <li [class.selected]="tab === 'console'">
+      <a href="" (click)="tab = 'console'">Console</a>
+    </li>
+    <li [class.selected]="tab === 'sro'">
+      <a href="" (click)="tab = 'sro'">SRO</a>
+    </li>
+    <li [class.selected]="tab === 'pb'">
+      <a href="" (click)="tab = 'pb'">PB</a>
+    </li>
+    <li [class.selected]="tab === 'parametres'">
+      <a href="" (click)="tab = 'parametres'">Paramètres</a>
+    </li>
+  </ul>
+</div>
+<div class="sub-nav-content-container">
+  <div class="container-fluid container-maverix">
+    <div class="row">
+      <div class="col-md-12">
+        <ng-template ui-view></ng-template>
+      </div>
+    </div>
+  </div>
+</div>

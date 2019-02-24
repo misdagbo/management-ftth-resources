@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { Request } from 'helper';
+export class QuartierRequest extends Request {
+}
+function QuartierRequest_tsickle_Closure_declarations() {
+    /** @type {?} */
+    QuartierRequest.prototype.datasParamSite;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicXVhcnRpZXItcmVxdWVzdC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL3dlYi8iLCJzb3VyY2VzIjpbImxpYi9fY29udHJhY3RzL3F1YXJ0aWVyLXJlcXVlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUNBLE9BQU8sRUFBRSxPQUFPLEVBQUUsTUFBTSxRQUFRLENBQUM7QUFJakMsTUFBTSxzQkFBdUIsU0FBUSxPQUFpQjtDQUlyRCIsInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IHsgUmVxdWVzdCB9IGZyb20gJ2hlbHBlcic7XG5pbXBvcnQgeyBTaXRlIH0gZnJvbSAnLi4vX2R0b3Mvc2l0ZSc7XG5pbXBvcnQgeyBRdWFydGllciB9IGZyb20gJy4uL19kdG9zL3F1YXJ0aWVyJztcblxuZXhwb3J0IGNsYXNzIFF1YXJ0aWVyUmVxdWVzdCBleHRlbmRzIFJlcXVlc3Q8UXVhcnRpZXI+IHtcblxuICAgIHB1YmxpYyBkYXRhc1BhcmFtU2l0ZTogQXJyYXk8U2l0ZT47XG5cbn1cbiJdfQ==

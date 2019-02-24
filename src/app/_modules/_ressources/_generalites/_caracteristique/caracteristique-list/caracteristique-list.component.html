@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_caracteristiqueList.isRefresh" [sz-table]="_caracteristiqueList.szTable"
+  [is-create]="_caracteristiqueList.isCreate" [is-header]="_caracteristiqueList.isHeader" [is-take-all]="_caracteristiqueList.isTakeAll"
+  [is-deleted]="_caracteristiqueList.isDeleted" [(index)]="_caracteristiqueList.index" [(size)]="_caracteristiqueList.size"
+  [(count)]="_caracteristiqueList.count" [data-source]="_caracteristiqueList.dataSource" [columns]="_caracteristiqueList.columns"
+  (onCreate)="_caracteristiqueList.doCreate($event)" (onModify)="_caracteristiqueList.doModify($event)" (onDelete)="_caracteristiqueList.doDelete($event)"
+  (onRefresh)="_caracteristiqueList.doLoad($event)" (onPageChange)="_caracteristiqueList.doLoad($event)" (onSearch)="_caracteristiqueList.doLoad($event)">
+</helper-advanced-table>

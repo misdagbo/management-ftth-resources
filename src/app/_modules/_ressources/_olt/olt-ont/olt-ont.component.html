@@ -1,0 +1,48 @@
+<div class="col-12" style="padding: 0;">
+  <div class="toolbar">
+    <div style="float: left">
+      <a class="toolbar-button" href="" (click)="doBack()">
+        <span class="fa fa-reply" style="font-size: 11px;"></span>
+      </a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a class="toolbar-button" href="" *ngIf="_oltPortSelected.paramEtatLibelle === 'ETEINT'" (click)="doTurnOn()"
+        style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        Allumer
+      </a>
+      <a class="toolbar-button" href="" (click)="doSave()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        List
+      </a>
+      <a class="toolbar-button" href="" (click)="doSave()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        Importer
+      </a>
+      <a class="toolbar-button" href="" (click)="doSave()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        Exporter
+      </a>
+    </div>
+    <div style="float: right">
+      <span style="font-size: 12px;font-weight:500;color: #000;line-height: 14px;">RFO</span>&nbsp;
+      <span class="on__badge" *ngIf="_oltPortSelected.paramEtatLibelle === 'ALLUME'"></span>
+      <span class="off__badge" *ngIf="_oltPortSelected.paramEtatLibelle === 'ETEINT'"></span>&nbsp;
+      <span style="font-size: 12px;font-weight:500;color: #000;line-height: 14px;">SRO</span>&nbsp;
+      <span class="on__badge" *ngIf="_oltPortSelected.paramEtatLibelle === 'ALLUME-SRO'"></span>
+      <span class="on__badge_o" *ngIf="_oltPortSelected.paramEtatLibelle === 'ALLUME'"></span>
+      <span class="off__badge" *ngIf="_oltPortSelected.paramEtatLibelle === 'ETEINT'"></span>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)" style="padding:0;font-size:12px;">
+  <div class="mCustomScrollbar" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)">
+    <div class="row" style="margin-right: 0;margin-left: 0;">
+      <div class="col-7" style="padding: 0;">
+        <div class="socicons" style="padding-top: 5px;" *ngIf="_ontArray && _ontArray.length > 0">
+          <a href="#" *ngFor="let ont of _ontArray" class="socicon-btn tooltips">
+            <span>{{ ont.numero }}</span>
+            <br />
+            <span class="port-inner" *ngIf="ont.paramEtatLibelle === 'ETEINT'"></span>
+            <span class="on__badge_o" *ngIf="ont.paramEtatLibelle === 'ALLUME-CLIENT'" (dblclick)="doOpenOnt(ont)"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

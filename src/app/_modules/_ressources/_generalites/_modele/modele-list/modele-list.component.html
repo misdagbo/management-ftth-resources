@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_modeleList.isRefresh" [sz-table]="_modeleList.szTable" [sz-search]="_modeleList.szSearch"
+  [is-create]="_modeleList.isCreate" [is-header]="_modeleList.isHeader" [is-search]="_modeleList.isSearch" [is-modify]="_modeleList.isModify"
+  [is-take-all]="_modeleList.isTakeAll" [(index)]="_modeleList.index" [(size)]="_modeleList.size" [(count)]="_modeleList.count"
+  [data-source]="_modeleList.dataSource" [columns]="_modeleList.columns" (onCreate)="_modeleList.doCreate($event)"
+  (onModify)="_modeleList.doModify($event)" (onRefresh)="_modeleList.doLoad($event)" (onPageChange)="_modeleList.doLoad($event)"
+  (onSearch)="_modeleList.doLoad($event)">
+</helper-advanced-table>

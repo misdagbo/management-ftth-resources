@@ -1,0 +1,140 @@
+<div class="col-sm-12">
+  <div class="row" style="margin-right: 0;margin-left: 0;">
+    <div class="col-md-12" style="padding: 0;">
+      <div class="row">
+        <div class="col-6" style="padding: 0;">
+          <div class="col-12" style="padding: 0;">
+            <div class="toolbar">
+              <div style="float: left">
+                <a class="toolbar-button" href="" (click)="doNewTot()">
+                  <i class="fa fa-plus" style="font-size: 11px;"></i>
+                </a>
+                <a class="toolbar-button" href="">
+                  <span class="fa fa-minus" style="font-size: 11px;"></span>
+                </a>
+                <a class="toolbar-button" href="" (click)="doSave()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+                  List
+                </a>
+                <a class="toolbar-button" href="" (click)="doTTT()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+                  TTT
+                </a>
+                &nbsp;|&nbsp;&nbsp;
+                <a class="toolbar-btn" href="" *ngFor="let tot of _tots" [class.__active_toolbar]="tot.id === _totSelected.id"
+                  (click)="doSelectTiroirtTransport(tot)">
+                  {{tot.labelNumero}}
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mCustomScrollbar" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)">
+            <div class="col-md-12">
+              <div class="hero-callout" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 74)">
+                <div class="inner">
+                  <span *ngIf="!_tots || _tots.length === 0">Aucun tiroir trouvé</span>
+                  <div *ngIf="_totSelected" align="center">
+                    <table style="font-size: 10px;" *ngIf="_tots && _tots.length > 0">
+                      <thead>
+                        <th></th>
+                        <th style="width: 20px;background: #e5e5e5;margin: 0;padding: 0;cursor: pointer;border-top: 1px solid #777777;border-bottom: 1px solid #777777;"
+                          *ngFor="let x of _totSelected.xAxisList">
+                          {{ x }}
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr style="border-right: 1px solid #777777;">
+                          <td class="slot" style="width: 15px;height: 20px;background: #e5e5e5;vertical-align: middle;">
+                            <ul class="node-content" *ngFor="let y of _totSelected.yAxisList" style="text-align: center;background: transparent;border-bottom: none;font-weight: 600;height: 20px;">
+                              <li style="vertical-align: middle;">
+                                {{ y }}
+                              </li>
+                            </ul>
+                          </td>
+                          <td *ngFor="let x of _totSelected.xAxisList" style="width: 20px;border-bottom: 1px solid #777777;text-align: center;margin: 0;padding: 0;cursor: pointer;">
+                            <ul class="node-content" *ngFor="let y of _totSelected.yAxisList" style="height: 20px;">
+                              <li class="port" (click)="doChoosePlot()">
+                                <label style="font-size: 6px;margin-bottom: 0;cursor: pointer;">{{ x + y }}
+                                  <br />
+                                  <span class="port-inner"></span>
+                                </label>
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" style="padding: 0;">
+          <div class="col-12" style="padding: 0;">
+            <div class="toolbar">
+              <div style="float: left">
+                <a class="toolbar-button" href="" (click)="doNewTod()">
+                  <i class="fa fa-plus" style="font-size: 11px;"></i>
+                </a>
+                <a class="toolbar-button" href="">
+                  <span class="fa fa-minus" style="font-size: 11px;"></span>
+                </a>
+                <a class="toolbar-button" href="" (click)="doList()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+                  List
+                </a>
+                <a class="toolbar-button" href="" (click)="doNewPb()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+                  PB
+                </a>
+                &nbsp;|&nbsp;&nbsp;
+                <a class="toolbar-btn" href="" *ngFor="let tod of _tods" [class.__active_toolbar]="tod.id === _todSelected.id"
+                  (click)="doSelectTiroirtDistribution(tod)">
+                  {{tod.labelNumero}}
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mCustomScrollbar" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)">
+            <div class="col-12" align="center" style="border-left: 1px solid #c2c2c2;">
+              <div class="hero-callout" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 50)">
+                <div class="inner">
+                  <span *ngIf="!_tods || _tods.length === 0">Aucun tiroir trouvé</span>
+                  <div *ngIf="_todSelected" align="center">
+                    <table style="font-size: 10px;" *ngIf="_tods && _tods.length > 0">
+                      <thead>
+                        <th></th>
+                        <th style="width: 20px;background: #e5e5e5;margin: 0;padding: 0;cursor: pointer;border-top: 1px solid #777777;border-bottom: 1px solid #777777;"
+                          *ngFor="let x of _todSelected.xAxisList">
+                          {{ x }}
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr style="border-right: 1px solid #777777;">
+                          <td class="slot" style="width: 15px;height: 20px;background: #e5e5e5;vertical-align: middle;">
+                            <ul class="node-content" *ngFor="let y of _todSelected.yAxisList" style="text-align: center;background: transparent;border-bottom: none;font-weight: 600;height: 20px;">
+                              <li style="vertical-align: middle;">
+                                {{ y }}
+                              </li>
+                            </ul>
+                          </td>
+                          <td *ngFor="let x of _todSelected.xAxisList" style="width: 20px;border-bottom: 1px solid #777777;text-align: center;margin: 0;padding: 0;cursor: pointer;">
+                            <ul class="node-content" *ngFor="let y of _todSelected.yAxisList" style="height: 20px;">
+                              <li class="port" (click)="doChoosePlot()">
+                                <label style="font-size: 6px;margin-bottom: 0;cursor: pointer;">{{ x + y }}
+                                  <br />
+                                  <span class="port-inner"></span>
+                                </label>
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

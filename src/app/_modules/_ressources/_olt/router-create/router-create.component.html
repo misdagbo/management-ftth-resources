@@ -1,0 +1,80 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un BNG
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormRouter="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-5">
+        <fieldset style="margin:0;">
+          <legend>BNG</legend>
+          <div class="modal-body" style="padding-top: 0;">
+            <div class="row">
+              <div class="col-12 form-group m-form__group">
+                <label for="nom">Nom <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i>
+                  (Masque de saisie: PE-BNG-XXX)
+                </label>
+                <input type="text" name="nom" mask="PE-BNG-AAA" upper-case [(ngModel)]="_router.nom" class="form-control form-control-sm m-input m-input--square"
+                  required>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="modele">Modèle <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <select class="form-control m-input form-control-sm m-input--square" name="modele" [(ngModel)]="_router.modele"
+                  required [disabled]="_modele">
+                  <option [value]="modele.id" *ngFor="let modele of _modeleArray">{{modele.reference}}</option>
+                </select>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="nro">NRO <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <select class="form-control m-input form-control-sm m-input--square" name="nro" [(ngModel)]="_router.nro"
+                  required>
+                  <option [value]="nro.id" *ngFor="let nro of _nroArray">{{nro.libelle}}</option>
+                </select>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="ip">IP <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <input type="text" name="ip" upper-case [(ngModel)]="_router.ip" class="form-control form-control-sm m-input m-input--square"
+                  required>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-7">
+        <div class="tabbable-custom">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link __first_nav-item active" style="font-weight: 600;font-size:11px;color: #212529;"
+                data-toggle="tab" href="#m_tabs_1_1">
+                Carte
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
+              <div class="row">
+                <div class="col-md-12">
+                  <ressources-router-carte-list [data]="_router" (onAddCarte)="doAddCarte($event)"></ressources-router-carte-list>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormRouter.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

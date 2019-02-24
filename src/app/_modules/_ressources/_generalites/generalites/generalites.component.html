@@ -1,0 +1,29 @@
+<div class="col-12">
+  <div class="row">
+    <div class="col-2 __bar_sub-menu__v-menu" style="padding:0;" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 26)">
+      <ul>
+        <li [class.selected]="tab === 'commune'">
+          <a href="" (click)="tab = 'commune'">Commune</a>
+        </li>
+        <li [class.selected]="tab === 'quartier'">
+          <a href="" (click)="tab = 'quartier'">Quartier</a>
+        </li>
+        <li [class.selected]="tab === 'site'">
+          <a href="" (click)="tab = 'site'">Site</a>
+        </li>
+        <li [class.selected]="tab === 'fournisseur'">
+          <a href="" (click)="tab = 'fournisseur'">Fournisseur</a>
+        </li>
+        <li [class.selected]="tab === 'modele'">
+          <a href="" (click)="tab = 'modele'">Modèle</a>
+        </li>
+        <li [class.selected]="tab === 'offre'">
+          <a href="" (click)="tab = 'offre'">Offre</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-10" style="padding:0;">
+      <ng-template ui-view></ng-template>
+    </div>
+  </div>
+</div>

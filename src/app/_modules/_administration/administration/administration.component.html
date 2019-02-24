@@ -1,0 +1,20 @@
+<div class="sub-nav">
+  <ul>
+    <li [class.selected]="tab === 'utilisateur'">
+      <a href="" (click)="tab = 'utilisateur'">Utilisateur</a>
+    </li>
+    <li [class.selected]="tab === 'profile'">
+      <a href="" (click)="tab = 'profile'">Profile</a>
+    </li>
+  </ul>
+</div>
+
+<div class="sub-nav-content-container">
+  <div class="container-fluid container-maverix">
+    <div class="row">
+      <div [ngClass]="{ 'utilisateur': 'col-md-8 offset-md-2', 'profile': 'col-md-6 offset-md-3' }[tab]">
+        <ng-template ui-view></ng-template>
+      </div>
+    </div>
+  </div>
+</div>

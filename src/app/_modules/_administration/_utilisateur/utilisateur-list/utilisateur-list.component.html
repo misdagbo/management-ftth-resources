@@ -1,0 +1,10 @@
+<div>
+  <helper-advanced-table [is-refresh]="_utilisateurList.isRefresh" [sz-table]="_utilisateurList.szTable"
+    [sz-search]="_utilisateurList.szSearch" [is-details]="_utilisateurList.isDetails" [is-create]="_utilisateurList.isCreate"
+    [is-header]="_utilisateurList.isHeader" [is-search]="_utilisateurList.isSearch" [is-modify]="_utilisateurList.isModify"
+    [is-take-all]="_utilisateurList.isTakeAll" [view-child]="_utilisateurList.viewChild" [(index)]="_utilisateurList.index"
+    [(size)]="_utilisateurList.size" [(count)]="_utilisateurList.count" [data-source]="_utilisateurList.dataSource"
+    [columns]="_utilisateurList.columns" (onCreate)="_utilisateurList.doCreate($event)" (onModify)="_utilisateurList.doModify($event)"
+    (onRefresh)="_utilisateurList.doLoad($event)" (onPageChange)="_utilisateurList.doLoad($event)" (onSearch)="_utilisateurList.doLoad($event)">
+  </helper-advanced-table>
+</div>

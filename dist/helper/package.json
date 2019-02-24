@@ -1,0 +1,21 @@
+{
+  "name": "helper",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "main": "bundles/helper.umd.js",
+  "module": "fesm5/helper.js",
+  "es2015": "fesm2015/helper.js",
+  "esm5": "esm5/helper.js",
+  "esm2015": "esm2015/helper.js",
+  "fesm5": "fesm5/helper.js",
+  "fesm2015": "fesm2015/helper.js",
+  "typings": "helper.d.ts",
+  "metadata": "helper.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

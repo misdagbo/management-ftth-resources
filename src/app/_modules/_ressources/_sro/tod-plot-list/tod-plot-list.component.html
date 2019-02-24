@@ -1,0 +1,10 @@
+<div>
+  <helper-advanced-table [is-refresh]="_todPlotList.isRefresh" [sz-table]="_todPlotList.szTable" [sz-search]="_todPlotList.szSearch"
+    [is-search]="_todPlotList.isSearch" [is-create]="_todPlotList.isCreate" [is-modify]="_todPlotList.isModify"
+    [is-take-all]="_todPlotList.isTakeAll" [is-checked]="_todPlotList.isChecked" [checked-rows]="todPlotChecked"
+    [max-size]="_todPlotList.maxSize" [(index)]="_todPlotList.index" [(size)]="_todPlotList.size" [(count)]="_todPlotList.count"
+    [data-source]="_todPlotList.dataSource" [columns]="_todPlotList.columns" (onCreate)="_todPlotList.doCreate($event)"
+    (onModify)="_todPlotList.doModify($event)" (onSearch)="_todPlotList.doLoad($event)" (onRefresh)="_todPlotList.doLoad($event)"
+    (onPageChange)="_todPlotList.doLoad($event)" (onSelect)="_todPlotList.doSelect($event)">
+  </helper-advanced-table>
+</div>

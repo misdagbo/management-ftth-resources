@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_quartierList.isRefresh" [sz-table]="_quartierList.szTable" [sz-search]="_quartierList.szSearch"
+  [is-create]="_quartierList.isCreate" [is-header]="_quartierList.isHeader" [is-search]="_quartierList.isSearch"
+  [is-modify]="_quartierList.isModify" [is-take-all]="_quartierList.isTakeAll" [(index)]="_quartierList.index" [(size)]="_quartierList.size"
+  [(count)]="_quartierList.count" [data-source]="_quartierList.dataSource" [columns]="_quartierList.columns" (onCreate)="_quartierList.doCreate($event)"
+  (onModify)="_quartierList.doModify($event)" (onRefresh)="_quartierList.doLoad($event)" (onPageChange)="_quartierList.doLoad($event)"
+  (onSearch)="_quartierList.doLoad($event)">
+</helper-advanced-table>

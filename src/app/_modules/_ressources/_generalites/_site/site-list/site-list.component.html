@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_siteList.isRefresh" [sz-table]="_siteList.szTable" [is-create]="_siteList.isCreate"
+  [is-header]="_siteList.isHeader" [sz-search]="_siteList.szSearch" [is-search]="_siteList.isSearch" [max-size]="_siteList.maxSize"
+  [is-take-all]="_siteList.isTakeAll" [is-modify]="_siteList.isModify" [(index)]="_siteList.index" [(size)]="_siteList.size"
+  [(count)]="_siteList.count" [data-source]="_siteList.dataSource" [columns]="_siteList.columns" (onCreate)="_siteList.doCreate($event)"
+  (onModify)="_siteList.doModify($event)" (onRefresh)="_siteList.doLoad($event)" (onPageChange)="_siteList.doLoad($event)"
+  (onSearch)="_siteList.doLoad($event)">
+</helper-advanced-table>

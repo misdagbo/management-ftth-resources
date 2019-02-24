@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un utilisateur
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #mdForm="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6 form-group m-form__group">
+        <label>Nom</label>
+        <input type="text" mask="A*" upper-case [(ngModel)]="_item.name" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label>Login</label>
+        <input type="text" mask="A*" [(ngModel)]="_item.login" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label>Mot de passe</label>
+        <input type="password" [(ngModel)]="_item.password" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label>Confirmer</label>
+        <input type="password" [(ngModel)]="_cPassword" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-12 form-group m-form__group">
+        <label>Profile</label>
+        <select class="form-control m-input form-control-sm m-input--square" [(ngModel)]="_item.profile"
+          required>
+          <option [value]="profile.id" *ngFor="let profile of _profiles">{{profile.libelle}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!mdForm.form.valid || (_item.password !== _cPassword) || !_item.password || !_item.profile"
+      class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

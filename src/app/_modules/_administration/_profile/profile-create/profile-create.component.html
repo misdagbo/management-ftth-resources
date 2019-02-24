@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un profile
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #mdForm="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12 form-group m-form__group">
+        <label>Libellé</label>
+        <input type="text" mask="S*" upper-case [(ngModel)]="_item.libelle" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <fieldset>
+            <legend>Fonctionnalités</legend>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6" *ngFor="let fonctionnalite of _fonctionnalites">
+                  <label class="m-checkbox m-checkbox--square">
+                    <input type="checkbox" [(ngModel)]="fonctionnalite.checked">                    {{fonctionnalite.libelle}}
+                    <span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!mdForm.form.valid || !_item.libelle" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

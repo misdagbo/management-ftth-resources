@@ -1,0 +1,20 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var PortRoe = /** @class */ (function () {
+    function PortRoe() {
+    }
+    return PortRoe;
+}());
+export { PortRoe };
+function PortRoe_tsickle_Closure_declarations() {
+    /** @type {?} */
+    PortRoe.prototype.id;
+    /** @type {?} */
+    PortRoe.prototype.numero;
+    /** @type {?} */
+    PortRoe.prototype.moduleRoe;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9ydC1yb2UuanMiLCJzb3VyY2VSb290Ijoibmc6Ly93ZWIvIiwic291cmNlcyI6WyJsaWIvX2R0b3MvcG9ydC1yb2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLElBQUE7OztrQkFBQTtJQU1DLENBQUE7QUFORCxtQkFNQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjbGFzcyBQb3J0Um9lIHtcblxuICAgIHB1YmxpYyBpZDogbnVtYmVyO1xuICAgIHB1YmxpYyBudW1lcm86IHN0cmluZztcbiAgICBwdWJsaWMgbW9kdWxlUm9lOiBudW1iZXI7XG5cbn1cbiJdfQ==

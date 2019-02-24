@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Liste des câbles de transport
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormCableTransportList="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12 form-group m-form__group" style="padding: 0;">
+        <helper-advanced-table [is-refresh]="_cableTransportList.isRefresh" [sz-table]="_cableTransportList.szTable"
+          [sz-search]="_cableTransportList.szSearch" [is-search]="_cableTransportList.isSearch" [is-create]="_cableTransportList.isCreate"
+          [is-modify]="_cableTransportList.isModify" [is-take-all]="_cableTransportList.isTakeAll" [(index)]="_cableTransportList.index"
+          [(size)]="_cableTransportList.size" [(count)]="_cableTransportList.count" [data-source]="_cableTransportList.dataSource"
+          [columns]="_cableTransportList.columns" (onCreate)="_cableTransportList.doCreate($event)" (onModify)="_cableTransportList.doModify($event)"
+          (onSearch)="_cableTransportList.doLoad($event)" (onRefresh)="_cableTransportList.doLoad($event)"
+          (onPageChange)="_cableTransportList.doLoad($event)" (onSelect)="_cableTransportList.doSelect($event)">
+        </helper-advanced-table>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormCableTransportList.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

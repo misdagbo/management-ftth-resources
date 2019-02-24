@@ -1,0 +1,6 @@
+<helper-advanced-table [is-refresh]="_rfoList.isRefresh" [sz-table]="_rfoList.szTable" [sz-search]="_rfoList.szSearch"
+  [is-search]="_rfoList.isSearch" [is-create]="_rfoList.isCreate" [is-modify]="_rfoList.isModify" [is-take-all]="_rfoList.isTakeAll"
+  [(index)]="_rfoList.index" [(size)]="_rfoList.size" [(count)]="_rfoList.count" [data-source]="_rfoList.dataSource"
+  [columns]="_rfoList.columns" (onCreate)="_rfoList.doCreate($event)" (onModify)="_rfoList.doModify($event)" (onSearch)="_rfoList.doLoad($event)"
+  (onRefresh)="_rfoList.doLoad($event)" (onPageChange)="_rfoList.doLoad($event)" (onSelect)="_rfoList.doSelect($event)">
+</helper-advanced-table>

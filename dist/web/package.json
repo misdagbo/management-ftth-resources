@@ -1,0 +1,21 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "main": "bundles/web.umd.js",
+  "module": "fesm5/web.js",
+  "es2015": "fesm2015/web.js",
+  "esm5": "esm5/web.js",
+  "esm2015": "esm2015/web.js",
+  "fesm5": "fesm5/web.js",
+  "fesm2015": "fesm2015/web.js",
+  "typings": "web.d.ts",
+  "metadata": "web.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

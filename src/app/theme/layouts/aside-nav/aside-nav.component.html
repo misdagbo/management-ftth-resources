@@ -1,0 +1,134 @@
+<!-- BEGIN: Left Aside -->
+<button class="m-aside-left-close  m-aside-left-close--skin-light" id="m_aside_left_close_btn" appunwraptag="">
+	<i class="la la-close"></i>
+</button>
+<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-light">
+	<!-- BEGIN: Aside Menu -->
+	<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-light m-aside-menu--submenu-skin-light"
+	 data-menu-vertical="true" m-menu-scrollable="true" m-menu-dropdown-timeout="500">
+		<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow">
+			<li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--open" routerLinkActiveOptions="{ exact: true }"
+			 aria-haspopup="true" m-menu-submenu-toggle="click">
+				<a routerLink="/index" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon flaticon-diagram"></i>
+					<span class="m-menu__link-text">
+						{{ 'ASIDE_NAV_DASHBOARD' | translate }}
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+			</li>
+			<li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--open" routerLinkActiveOptions="{ exact: true }"
+			 aria-haspopup="true" m-menu-submenu-toggle="click">
+				<a routerLink="/ressources" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon flaticon-network"></i>
+					<span class="m-menu__link-text">
+						{{ 'ASIDE_NAV_RESOURCE' | translate }}
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+			</li>
+			<li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--open" routerLinkActiveOptions="{ exact: true }"
+			 aria-haspopup="true" m-menu-submenu-toggle="click">
+				<a routerLink="/demandes" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon flaticon-support"></i>
+					<span class="m-menu__link-text">
+						{{ 'ASIDE_NAV_REQUEST' | translate }}
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+			</li>
+			<li class="m-menu__item  m-menu__item--submenu m-menu__item--bottom-2" routerLinkActive="m-menu__item--open"
+			 routerLinkActiveOptions="{ exact: true }" aria-haspopup="true" m-menu-submenu-toggle="click">
+				<a href="javascript:;" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon flaticon-settings"></i>
+					<span class="m-menu__link-text">
+						{{ 'ASIDE_NAV_SETTING' | translate }}
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+				<div class="m-menu__submenu m-menu__submenu--up">
+					<span class="m-menu__arrow"></span>
+					<ul class="m-menu__subnav">
+						<li class="m-menu__item  m-menu__item--parent m-menu__item--bottom-2" routerLinkActive="m-menu__item--active"
+						 routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+							<span class="m-menu__link">
+								<span class="m-menu__link-text">
+									{{ 'ASIDE_NAV_SETTING' | translate }}
+								</span>
+							</span>
+						</li>
+						<li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"
+						 aria-haspopup="true" m-menu-link-redirect="1">
+							<a routerLink="/administration" class="m-menu__link">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									{{ 'ASIDE_NAV_ADMINISTRATION' | translate }}
+								</span>
+							</a>
+						</li>
+						<li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--open" routerLinkActiveOptions="{ exact: true }"
+						 aria-haspopup="true" m-menu-submenu-toggle="hover" m-menu-link-redirect="1">
+							<a routerLink="/inner" class="m-menu__link m-menu__toggle">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									{{ 'ASIDE_NAV_SETTING_LANGUAGE' | translate }}
+								</span>
+								<i class="m-menu__ver-arrow la la-angle-right"></i>
+							</a>
+							<div class="m-menu__submenu">
+								<span class="m-menu__arrow"></span>
+								<ul class="m-menu__subnav">
+									<li class="m-menu__item" (click)="doSelectLang('fr')">
+										<a class="m-menu__link">
+											<i class="m-menu__link-icon">
+												<img src="../../../assets/app/media/img/icons/if_Saint-Barthelemy-Flag_32318.png" alt="" />
+											</i>
+											<span class="m-menu__link-title">
+												<span class="m-menu__link-wrap">
+													<span class="m-menu__link-text" [style.color]="_translateService.currentLang === 'fr' ? '#22b9ff' : inherit">
+														{{ 'ASIDE_NAV_SETTING_LANGUAGE_FRENCH' | translate }}
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="m-menu__item" (click)="doSelectLang('en')">
+										<a class="m-menu__link">
+											<i class="m-menu__link-icon">
+												<img src="../../../assets/app/media/img/icons/if_United-Kingdom-flag_32363.png" alt="" />
+											</i>
+											<span class="m-menu__link-title">
+												<span class="m-menu__link-wrap">
+													<span class="m-menu__link-text" [style.color]="_translateService.currentLang === 'en' ? '#22b9ff' : inherit">
+														{{ 'ASIDE_NAV_SETTING_LANGUAGE_ENGLISH' | translate }}
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="m-menu__item  m-menu__item--submenu m-menu__item--bottom-1" routerLinkActive="m-menu__item--open"
+			 routerLinkActiveOptions="{ exact: true }" aria-haspopup="true" m-menu-submenu-toggle="click">
+				<a href="javascript:;" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon flaticon-info"></i>
+					<span class="m-menu__link-text">
+						{{ 'ASIDE_NAV_HELP' | translate }}
+					</span>
+					<i class="m-menu__ver-arrow la la-angle-right"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- END: Aside Menu -->
+</div>
+<div class="m-aside-menu-overlay"></div>
+<!-- END: Left Aside -->

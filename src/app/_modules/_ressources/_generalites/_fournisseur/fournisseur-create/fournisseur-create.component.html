@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un fournisseur
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormFournisseur="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6 form-group m-form__group">
+        <label for="raisonSociale">Raison sociale <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="raisonSociale" upper-case [(ngModel)]="_fournisseur.raison" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="contact">Contact <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="contact" upper-case [(ngModel)]="_fournisseur.contact" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="email">e-mail <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="email" name="email" [(ngModel)]="_fournisseur.email" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="adresse">Adresse <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="adresse" upper-case [(ngModel)]="_fournisseur.adresse" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormFournisseur.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

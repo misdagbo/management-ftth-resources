@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer une caractéristique
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormCaracteristique="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12 form-group m-form__group">
+        <label for="modele">Modèle</label>
+        <input type="text" name="modele" upper-case [(ngModel)]="_caracteristique.paramModeleReference" class="form-control form-control-sm m-input m-input--square"
+          readonly>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="propriete">Propriété <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="propriete" upper-case [(ngModel)]="_caracteristique.libelle" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="valeur">Valeur <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="valeur" upper-case [(ngModel)]="_caracteristique.valeur" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormCaracteristique.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

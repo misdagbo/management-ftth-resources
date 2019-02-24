@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { Request } from 'helper';
+export class TttPortRequest extends Request {
+}
+function TttPortRequest_tsickle_Closure_declarations() {
+    /** @type {?} */
+    TttPortRequest.prototype.datasRfoFibreTransport;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHR0LXBvcnQtcmVxdWVzdC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL3dlYi8iLCJzb3VyY2VzIjpbImxpYi9fY29udHJhY3RzL3R0dC1wb3J0LXJlcXVlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxPQUFPLEVBQUUsTUFBTSxRQUFRLENBQUM7QUFJakMsTUFBTSxxQkFBc0IsU0FBUSxPQUFnQjtDQUluRCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJlcXVlc3QgfSBmcm9tICdoZWxwZXInO1xuaW1wb3J0IHsgVHR0UG9ydCB9IGZyb20gJy4uL19kdG9zL3R0dC1wb3J0JztcbmltcG9ydCB7IEZpYnJlQ2FibGVUcmFuc3BvcnQgfSBmcm9tICcuLi9fZHRvcy9maWJyZS1jYWJsZS10cmFuc3BvcnQnO1xuXG5leHBvcnQgY2xhc3MgVHR0UG9ydFJlcXVlc3QgZXh0ZW5kcyBSZXF1ZXN0PFR0dFBvcnQ+IHtcblxuICAgIHB1YmxpYyBkYXRhc1Jmb0ZpYnJlVHJhbnNwb3J0OiBBcnJheTxGaWJyZUNhYmxlVHJhbnNwb3J0PjtcblxufVxuIl19

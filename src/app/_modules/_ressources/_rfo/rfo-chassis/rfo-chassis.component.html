@@ -1,0 +1,149 @@
+<div class="col-sm-12">
+  <div class="row" style="margin-right: 0;margin-left: 0;">
+    <div class="col-md-12" style="padding: 0;">
+      <div class="row">
+        <div class="col-6" style="padding: 0;">
+          <div class="col-12" style="padding: 0;">
+            <div class="toolbar">
+              <div style="float: left">
+                <div class="dropdown btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;font-size: 11px;color: #404040;">
+                    <span class="fa fa-plus" style="margin-right: 2px;font-size: 11px;"></span>
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" style="cursor: pointer;font-size: 11px;border-bottom: none;">
+                    <li (click)="doAddTravee()"><a>TRAVEE</a></li>
+                    <li (click)="doAddFe()"><a>FE</a></li>
+                    <li (click)="doAddRoe()"><a>ROE</a></li>
+                  </ul>
+                </div>
+                <a class="toolbar-button" [class.disabled]="!_roePortSelected || !_rotPortSelected" href="" (click)="doApply()">
+                  <i class="fa fa-check" style="font-size: 11px;"></i>
+                </a>
+                |&nbsp;
+                <select style="height: 20px;font-size: 12px;margin-right: 4px;" (change)="doLoadFe(_rfoTraveeFeSelected)"
+                  [(ngModel)]="_rfoTraveeFeSelected">
+                  <option [ngValue]="rfoTravee" *ngFor="let rfoTravee of _rfoTraveeArray">{{ 'TV' + rfoTravee.numero }}</option>
+                </select>
+                <select style="height: 20px;font-size: 12px;margin-right: 4px;" (change)="doLoadRoe(_rfoFeSelected)"
+                  [(ngModel)]="_rfoFeSelected">
+                  <option [ngValue]="rfoFe" *ngFor="let rfoFe of _rfoFeArray">{{ 'FE' + rfoFe.numero }}</option>
+                </select>
+                |&nbsp;
+                <select style="height: 20px;font-size: 12px;margin-right: 4px;" (change)="doLoadRoeModule(_roeSelected)"
+                  [(ngModel)]="_roeSelected">
+                  <option [ngValue]="roe" *ngFor="let roe of _roeArray">{{ 'ROE' + roe.numero }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="mCustomScrollbar" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)">
+            <div class="col-12" align="center">
+              <div class="hero-callout" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 74)">
+                <div class="inner">
+                  <span *ngIf="!_roeNiveauArray || _roeNiveauArray.length === 0">Aucune ferme trouvée</span>
+                  <table style="font-size: 10px;" *ngIf="_roeNiveauArray && _roeNiveauArray.length > 0">
+                    <tbody>
+                      <tr>
+                        <td class="slot" style="width: 15px;background: #e5e5e5;">
+                          <ul class="node-content" *ngFor="let roeModule of _roeNiveauArray" style="text-align: center;background: transparent;border-bottom: none;font-weight: 600;height: 15px;">
+                            <li style="vertical-align: middle;">
+                              {{ roeModule.numero }}
+                            </li>
+                          </ul>
+                        </td>
+                        <td style="margin: 0;padding: 0;cursor: pointer;border-right: 1px solid #777777;border-top: 1px solid #777777;"
+                          [ngStyle]="_roeStyleWidth">
+                          <ul class="node-content" *ngFor="let roeModule of _roeNiveauArray" style="height: 15px;"
+                            (dblclick)="doAddModuleRoe($event, roeModule)">
+                            <li class="port" *ngFor="let roePortModule of roeModule.itemsRfoRoePortModule" (click)="doSelectRoePort($event, roePortModule)">
+                              <span class="port-inner" *ngIf="roePortModule.paramEtatLibelle === 'ETEINT'"></span>
+                              <span class="on__badge" *ngIf="roePortModule.paramEtatLibelle === 'ALLUME' && (!_roePortSelected || (_roePortSelected && roePortModule.id !== _roePortSelected.id))"></span>
+                              <span class="on__badge_link" *ngIf="roePortModule.paramEtatLibelle === 'ALLUME-OLT' && (!_roePortSelected || (_roePortSelected && roePortModule.id !== _roePortSelected.id))"></span>
+                              <span class="led-yellow" *ngIf="(roePortModule.paramEtatLibelle === 'ALLUME' || roePortModule.paramEtatLibelle === 'ALLUME-OLT') && (_roePortSelected && roePortModule.id === _roePortSelected.id)"></span>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" style="padding: 0;">
+          <div class="col-12" style="padding: 0;">
+            <div class="toolbar">
+              <div style="float: left">
+                <div class="dropdown btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;font-size: 11px;color: #404040;">
+                    <span class="fa fa-plus" style="margin-right: 2px;font-size: 11px;"></span>
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" style="cursor: pointer;font-size: 11px;border-bottom: none;">
+                    <li (click)="doAddFt()"><a>FT</a></li>
+                    <li (click)="doAddRot()"><a>ROT</a></li>
+                  </ul>
+                </div>
+                <a class="toolbar-button" href="" (click)="doCreateCableTransport()">
+                  <i class="fa fa-list" style="font-size: 11px;"></i>
+                </a>
+                <a class="toolbar-button" href="" (click)="doCableTransportList()">
+                  <i class="fa fa-list" style="font-size: 11px;"></i>
+                </a>
+                |&nbsp;
+                <select style="height: 20px;font-size: 12px;margin-right: 4px;" (change)="doLoadFt(_rfoTraveeFtSelected)"
+                  [(ngModel)]="_rfoTraveeFtSelected">
+                  <option [ngValue]="rfoTravee" *ngFor="let rfoTravee of _rfoTraveeArray">{{ 'TV' + rfoTravee.numero }}</option>
+                </select>
+                <select style="height: 20px;font-size: 12px;margin-right: 4px;" (change)="doLoadRot(_rfoFtSelected)"
+                  [(ngModel)]="_rfoFtSelected">
+                  <option [ngValue]="rfoFt" *ngFor="let rfoFt of _rfoFtArray">{{ 'FT' + rfoFt.numero }}</option>
+                </select>
+                |&nbsp;
+                <select style="height: 20px;font-size: 12px;margin-right: 4px;" (change)="doLoadRotModule(_rotSelected)"
+                  [(ngModel)]="_rotSelected">
+                  <option [ngValue]="rot" *ngFor="let rot of _rotArray">{{ 'ROT' + rot.numero }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="mCustomScrollbar" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)">
+            <div class="col-12" align="center" style="border-left: 1px solid #c2c2c2;">
+              <div class="hero-callout" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 74)">
+                <div class="inner">
+                  <span *ngIf="!_rotNiveauArray || _rotNiveauArray.length === 0">Aucune ferme trouvée</span>
+                  <table style="font-size: 10px;" *ngIf="_rotNiveauArray && _rotNiveauArray.length > 0">
+                    <tbody>
+                      <tr>
+                        <td class="slot" style="width: 15px;background: #e5e5e5;cursor: pointer;">
+                          <ul class="node-content" *ngFor="let rotModule of _rotNiveauArray" style="text-align: center;background: transparent;border-bottom: none;font-weight: 600;height: 15px;">
+                            <li style="vertical-align: middle;">
+                              {{ rotModule.numero }}
+                            </li>
+                          </ul>
+                        </td>
+                        <td style="margin: 0;padding: 0;cursor: pointer;border-right: 1px solid #777777;border-top: 1px solid #777777;"
+                          [ngStyle]="_rotStyleWidth">
+                          <ul class="node-content" *ngFor="let rotModule of _rotNiveauArray" style="height: 15px;"
+                            (dblclick)="doAddModuleRot($event, rotModule)">
+                            <li class="port" *ngFor="let rotPortModule of rotModule.itemsRfoRotPortModule" (click)="doSelectRotPort($event, rotPortModule)">
+                              <span class="port-inner" *ngIf="(rotPortModule.paramEtatLibelle === 'ETEINT' || rotPortModule.paramEtatLibelle === 'OFF-USED') && (!_rotPortSelected || (_rotPortSelected && rotPortModule.id !== _rotPortSelected.id) || (_rfoJarretiere && rotPortModule.id !== _rfoJarretiere.rotPortModule))"></span>
+                              <span class="on__badge" *ngIf="(rotPortModule.paramEtatLibelle === 'ALLUME') && ((_rfoJarretiere && rotPortModule.id !== _rfoJarretiere.rotPortModule) || !_rfoJarretiere)"></span>
+                              <span class="led-yellow" *ngIf="(rotPortModule.paramEtatLibelle === 'ETEINT' || rotPortModule.paramEtatLibelle === 'ALLUME' || rotPortModule.paramEtatLibelle === 'OFF-USED') && ((_rotPortSelected && rotPortModule.id === _rotPortSelected.id) || (_rfoJarretiere && rotPortModule.id === _rfoJarretiere.rotPortModule))"></span>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()" #nroRfoForm="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="m-input-icon m-input-icon--left" style="margin-bottom: 10px;">
+        <a class="btn btn-help" href="" style="margin-right: 8px;" (click)="doCreate()">
+          <img src="../../../../../../assets/app/media/img/icons/if_list-add_118777.png" style="margin-top: -1px;margin-left: -1px;" />
+        </a>
+        <a class="btn btn-help" href="" style="margin-right: 8px;">
+          <img src="../../../../../../assets/app/media/img/icons/if_go-next_118773.png" style="margin-top: -1px;margin-left: -1px;" />
+        </a>
+        <a class="btn btn-help" href="" style="margin-right: 8px;">
+          <img src="../../../../../../assets/app/media/img/icons/if_go-previous_118774.png" style="margin-top: -1px;margin-left: -1px;" />
+        </a>
+      </div>
+      <div class="m-input-icon m-input-icon--left" style="margin-bottom:10px;">
+        <input type="text" id="nro" name="nro" mask="S*" class="form-control form-control-sm m-input m-input--square"
+          style="border:1px solid #ddd;font-size:13px;" [(ngModel)]="_nro" (ngModelChange)="doRefresh()" placeholder="Recherche...">
+        <span class="m-input-icon__icon m-input-icon__icon--left">
+          <span>
+            <i class="flaticon-search"></i>
+          </span>
+        </span>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <fieldset style="margin:0;">
+            <legend>NRO&nbsp;&nbsp;<i class="fa fa-refresh" style="font-size:14px;cursor: pointer;" (click)="doRefresh()"></i></legend>
+            <div id="tree-demo" style="font-size:12px;font-weight:500;" class="tree-demo"></div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

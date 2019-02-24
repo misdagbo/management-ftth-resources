@@ -1,0 +1,92 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un cable transport
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormCableTransport="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6 form-group m-form__group">
+        <label for="reference">Réference <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="reference" upper-case [(ngModel)]="_cableTransport.numero" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="modele">Modèle <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <select class="form-control m-input form-control-sm m-input--square" (change)="doChangeModele()" name="modele"
+          [(ngModel)]="_modele" required>
+          <option [ngValue]="modele" *ngFor="let modele of _modeleArray">{{ modele.reference }}</option>
+        </select>
+      </div>
+      <div class="col-5 form-group m-form__group" style="padding-right: 0;">
+        <h6><label>Fibre ROT</label></h6>
+        <div class="table-cell">
+          <table class="table-maverix table-maverix-small">
+            <tbody>
+              <tr [class.selected]="rotPortFibre.selected" *ngFor="let rotPortFibre of _rotPortFibreArray;let i = index;"
+                (click)="doSelectRotPortFibre(rotPortFibre)">
+                <td>{{ rotPortFibre.numero }}</td>
+                <td class="text-right">
+                  <select class="on-white-select" [ngModelOptions]="{ standalone: true }" [(ngModel)]="rotPortFibre.couleur">
+                    <option [value]="couleur.id" *ngFor="let couleur of _couleurArray">{{ couleur.libelle }}</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-2 form-group m-form__group hero-callout" style="padding: 0;" align="center">
+        <div class="inner">
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doAdd()" [class.disabled]="!_modele || (_modele && _modele.id === 0)">
+              <i class="fa fa-chevron-right" style="font-size: 11px;"></i>
+            </a>
+          </div>
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doRemove()" [class.disabled]="!_fibreCableTransportArray || (_fibreCableTransportArray && _fibreCableTransportArray.length === 0)">
+              <i class="fa fa-chevron-left" style="font-size: 11px;"></i>
+            </a>
+          </div>
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doAddAll()" [class.disabled]="!_modele || (_modele && _modele.id === 0)">
+              <i class="fa fa-forward" style="font-size: 11px;"></i>
+            </a>
+          </div>
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doRemoveAll()" [class.disabled]="!_fibreCableTransportArray || (_fibreCableTransportArray && _fibreCableTransportArray.length === 0)">
+              <i class="fa fa-backward" style="font-size: 11px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 form-group m-form__group" style="padding-left: 0;">
+        <h6><label>Fibre transport</label></h6>
+        <div class="table-cell">
+          <table class="table-maverix table-maverix-small">
+            <tbody>
+              <tr [class.selected]="fibreCableTransport.selected" *ngFor="let fibreCableTransport of _fibreCableTransportArray;"
+                (click)="doSelectFibreCableTransport(fibreCableTransport)">
+                <td>{{ fibreCableTransport.numero }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormCableTransport.form.valid || !_fibreCableTransportArray || (_fibreCableTransportArray && _fibreCableTransportArray.length === 0)"
+      class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

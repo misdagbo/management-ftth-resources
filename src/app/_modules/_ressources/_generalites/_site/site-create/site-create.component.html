@@ -1,0 +1,66 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un site
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormSite="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-5">
+        <fieldset style="margin:0;">
+          <legend>Site</legend>
+          <div class="modal-body" style="padding-top: 0;">
+            <div class="row">
+              <div class="col-12 form-group m-form__group">
+                <label for="libelle">Libellé <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <input type="text" name="libelle" upper-case [(ngModel)]="_site.libelle" class="form-control form-control-sm m-input m-input--square"
+                  required>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="quartier">Quartier <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <select name="quartier" class="form-control m-input form-control-sm m-input--square" [(ngModel)]="_site.quartier"
+                  required>
+                  <option [value]="quartier.id" *ngFor="let quartier of _quartierArray">{{quartier.libelle}}</option>
+                </select>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="type">Type <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <select name="type" class="form-control m-input form-control-sm m-input--square" [(ngModel)]="_site.type"
+                  required>
+                  <option value='IMMEUBLE'>IMMEUBLE</option>
+                  <option value='PAVILLONNAIRE'>PAVILLONNAIRE</option>
+                </select>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="latitude">Latitude <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <input type="text" name="latitude" [(ngModel)]="_site.latitude" class="form-control form-control-sm m-input m-input--square"
+                  required>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="longitude">Longitude <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <input type="text" name="longitude" [(ngModel)]="_site.longitude" class="form-control form-control-sm m-input m-input--square"
+                  required>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-7">
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormSite.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

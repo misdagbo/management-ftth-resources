@@ -1,0 +1,80 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un modèle
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormModele="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-5">
+        <fieldset style="margin:0;">
+          <legend>Modèle</legend>
+          <div class="modal-body" style="padding-top: 0;">
+            <div class="row">
+              <div class="col-12 form-group m-form__group">
+                <label for="reference">Réference <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <input type="text" name="reference" upper-case [(ngModel)]="_modele.reference" class="form-control form-control-sm m-input m-input--square"
+                  required>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="type">Type <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <select name="type" class="form-control m-input form-control-sm m-input--square" [(ngModel)]="_modele.type"
+                  required>
+                  <option value='OLT'>OLT</option>
+                  <option value='TIROIR FO'>TIROIR FO</option>
+                  <option value='CARTE OLT'>CARTE OLT</option>
+                  <option value='CARTE ROUTER'>CARTE ROUTER</option>
+                  <option value='CHASSIS RFO'>CHASSIS RFO</option>
+                  <option value='MODULE RFO'>MODULE RFO</option>
+                  <option value='CABLE TRANSPORT'>CABLE TRANSPORT</option>
+                  <option value='ROUTER'>ROUTER</option>
+                </select>
+              </div>
+              <div class="col-12 form-group m-form__group">
+                <label for="fournisseur">Fournisseur <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+                <select name="fournisseur" class="form-control m-input form-control-sm m-input--square" [(ngModel)]="_modele.fournisseur"
+                  required>
+                  <option [value]="fournisseur.id" *ngFor="let fournisseur of _fournisseurArray">{{fournisseur.raison}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-7">
+        <div class="tabbable-custom">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link __first_nav-item active" style="font-weight: 600;font-size:11px;color: #212529;"
+                data-toggle="tab" href="#m_tabs_1_1">
+                Caractéristiques
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
+              <div class="row">
+                <div class="col-md-12">
+                  <ressources-generalites-caracteristique-list [data]="_modele" (onAddCaracteristique)="doAddCaracteristique($event)"></ressources-generalites-caracteristique-list>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormModele.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

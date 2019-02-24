@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer une commune
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormCommune="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12 form-group m-form__group">
+        <label for="libelle">Libellé <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" upper-case [(ngModel)]="_commune.libelle" name="libelle" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormCommune.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

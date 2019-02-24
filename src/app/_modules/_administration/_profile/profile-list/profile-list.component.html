@@ -1,0 +1,10 @@
+<div>
+  <helper-advanced-table [is-refresh]="_profileList.isRefresh" [sz-table]="_profileList.szTable" [sz-search]="_profileList.szSearch"
+    [is-details]="_profileList.isDetails" [is-create]="_profileList.isCreate" [is-header]="_profileList.isHeader"
+    [is-search]="_profileList.isSearch" [is-modify]="_profileList.isModify" [is-take-all]="_profileList.isTakeAll"
+    [view-child]="_profileList.viewChild" [(index)]="_profileList.index" [(size)]="_profileList.size" [(count)]="_profileList.count"
+    [data-source]="_profileList.dataSource" [columns]="_profileList.columns" (onCreate)="_profileList.doCreate($event)"
+    (onModify)="_profileList.doModify($event)" (onRefresh)="_profileList.doLoad($event)" (onPageChange)="_profileList.doLoad($event)"
+    (onSearch)="_profileList.doLoad($event)">
+  </helper-advanced-table>
+</div>

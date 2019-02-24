@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_communeList.isRefresh" [sz-table]="_communeList.szTable" [sz-search]="_communeList.szSearch"
+  [is-create]="_communeList.isCreate" [is-header]="_communeList.isHeader" [is-search]="_communeList.isSearch"
+  [is-modify]="_communeList.isModify" [is-take-all]="_communeList.isTakeAll" [(index)]="_communeList.index" [(size)]="_communeList.size"
+  [(count)]="_communeList.count" [data-source]="_communeList.dataSource" [columns]="_communeList.columns" (onCreate)="_communeList.doCreate($event)"
+  (onModify)="_communeList.doModify($event)" (onRefresh)="_communeList.doLoad($event)" (onPageChange)="_communeList.doLoad($event)"
+  (onSearch)="_communeList.doLoad($event)">
+</helper-advanced-table>

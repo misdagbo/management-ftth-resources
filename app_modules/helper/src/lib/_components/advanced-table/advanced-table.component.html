@@ -1,0 +1,165 @@
+<div class="table-responsive">
+  <div class="hero-callout" [style.font-size.px]="szTable === 'sm' ? '11' : '13'">
+    <div class="form-group m-form__group row align-items-center" style="margin-bottom: 4px;">
+      <div [ngClass]="{ 'sm': 'col-10', 'md': 'col-9', 'lg': 'col-8', 'sz-6': 'col-6', 'sz-5': 'col-7' }[szSearch]"
+        *ngIf="!isTakeAll">
+        <label>
+          Affiche
+          <select [(ngModel)]="_ngbPagination.pageSize" (ngModelChange)="_ngbPagination.pageChange(_ngbPagination.page)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          entrées
+        </label>
+      </div>
+      <div [ngClass]="{ 'sm': 'col-2 d-flex justify-content-end', 'md': 'col-3 d-flex justify-content-end', 'lg': 'col-4 d-flex justify-content-end', 'sz-6': 'col-6 d-flex justify-content-end', 'sz-5': 'col-5 d-flex justify-content-end' }[szSearch]"
+        *ngIf="isSearch">
+        <div class="m-input-icon m-input-icon--left">
+          <input type="text" class="form-control form-control-sm m-input" style="border:1px solid #ddd;" [(ngModel)]="_searchParam"
+            placeholder="Recherche..." (ngModelChange)="doSearch()">
+          <span class="m-input-icon__icon m-input-icon__icon--left">
+            <span>
+              <i class="flaticon-search"></i>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover advanced-table m-table">
+      <thead>
+        <tr>
+          <th class="th-1" *ngIf="isRefresh && !isNumber" (click)="doRefresh()">
+            <i class="fa fa-refresh" [style.font-size.px]="szTable === 'sm' ? '13' : '14'"></i>
+          </th>
+          <th *ngIf="isDetails"></th>
+          <th *ngIf="isSelected && !isChecked"></th>
+          <th *ngIf="isChecked && !isSelected">
+            <input type="checkbox" [(ngModel)]="_isCheckedRows" (ngModelChange)="doCheckRows()">
+          </th>
+          <th *ngIf="isNumber && !isRefresh">N°</th>
+          <th *ngFor="let column of columns" (click)="doSorting(column);">
+            {{column.text}}
+            <i class="la la-arrow-up i--filter" *ngIf="column.isSorting && !column.isSortUp"></i>
+            <i class="la la-arrow-down i--filter" *ngIf="column.isSorting && column.isSortUp"></i>
+          </th>
+          <th class="th-1" *ngIf="isEditable">
+            <div class="dropdown btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <span class="fa fa-cog"></span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" style="cursor: pointer;" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <li *ngIf="isCreate" (click)="doCreate()"><a>Nouveau</a></li>
+                <li><a>Exporter</a></li>
+              </ul>
+            </div>
+          </th>
+          <th class="th-1" *ngIf="isModify">
+            <div class="dropdown btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <span class="fa fa-cog"></span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" style="cursor: pointer;" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <li *ngIf="isCreate" (click)="doCreate()"><a>Nouveau</a></li>
+                <li><a>Exporter</a></li>
+              </ul>
+            </div>
+          </th>
+          <th class="th-1" *ngIf="!isModify && !isEditable && !isDeleted && !isCreate">
+            <div class="dropdown btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <span class="fa fa-cog"></span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" style="cursor: pointer;" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <li><a>Exporter</a></li>
+              </ul>
+            </div>
+          </th>
+          <th class="th-1" *ngIf="isDeleted">
+            <div class="dropdown btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <span class="fa fa-cog"></span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" style="cursor: pointer;" [style.font-size.px]="szTable === 'sm' ? '11' : '12'">
+                <li *ngIf="isCreate" (click)="doCreate()"><a>Nouveau</a></li>
+                <li><a>Exporter</a></li>
+              </ul>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let row of dataSource; let i = index;" style="border: none;">
+        <tr class="__r" (dblclick)="doModify(row)" (click)="doSelect(row)">
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isRefresh && !isNumber">
+            {{ (i + 1) + (_ngbPagination.pageSize * (_ngbPagination.page - 1)) }}
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isDetails">
+            <span class="dt-btn-plus" [style.font-size.px]="szTable === 'sm' ? '11' : '13'" (click)="doOpen(row)" *ngIf="!row.isOpen">+</span>
+            <span class="dt-btn-minius" [style.font-size.px]="szTable === 'sm' ? '11' : '13'" (click)="doClose(row)"
+              *ngIf="row.isOpen">-</span>
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isSelected && !isChecked">
+            <input type="radio" name="radio" [checked]="row.selected === true">
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isChecked && !isSelected">
+            <input type="checkbox" [(ngModel)]="row.checked" (ngModelChange)="doCheck(row)">
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isNumber && !isRefresh">
+            {{ (i + 1) + (_ngbPagination.pageSize * (_ngbPagination.page - 1)) }}
+          </td>
+          <td class="td-2" [class.td--active]="row.checked || row.selected" *ngFor="let column of columns">
+            <span *ngIf="!column.isEditable || !row.editable">{{row[column.name]}}</span>
+            <input *ngIf="column.isEditable && row.editable" type="text" class="form-control form-control-sm m-input m-input--square"
+              style="border: 1px solid #ddd;" [(ngModel)]="row[column.name]" />
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isEditable && !isModify">
+            <img *ngIf="!row.editable && isEditable" src="../../../assets/app/media/img/icons/if_Modify_132685.png"
+              (click)="doEditable(row)" width="12" height="12" />
+            <img *ngIf="row.editable && isEditable" src="../../../assets/app/media/img/icons/if_floppy_disk_save_103863.png"
+              (click)="doValidate(row)" width="12" height="12" style="margin-right: 6px;" />
+            <img *ngIf="row.editable && isEditable" src="../../../assets/app/media/img/icons/if_f-cross_256_282471.png"
+              (click)="doCancel(row)" width="12" height="12" />
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isModify && !isEditable" (click)="doModify(row)">
+            <img src="../../../assets/app/media/img/icons/if_Modify_132685.png" width="12" height="12" />
+          </td>
+          <td class="td-1" [class.td--active]="row.checked || row.selected" *ngIf="isDeleted" (click)="doDelete(row)">
+            <img src="../../../assets/app/media/img/icons/if_Erase_132784.png" width="12" height="12" />
+          </td>
+          <td [class.td--active]="row.checked || row.selected" *ngIf="!isModify && !isEditable && !isDeleted && !isCreate"></td>
+        </tr>
+        <tr *ngIf="row.isOpen">
+          <td class="sub--r" [attr.colspan]="columns.length + 8">
+            <ng-template ui-view [data]="row"></ng-template>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!count" style="border: none">
+        <tr>
+          <td class="sub--r-1" [attr.colspan]="columns.length + 8" style="text-align: center">Aucune donn&eacute;e</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group m-form__group row align-items-center" style="margin-bottom: 0px;" *ngIf="!isTakeAll && count">
+      <div class="col-md-4" style="top: -7px;">
+        <span>
+          Affichage {{ _ngbPagination.rowStart() }} à {{ _ngbPagination.rowEnd() > count ? count :
+          _ngbPagination.rowEnd() }} de {{count}}
+          entrées
+        </span>
+      </div>
+      <div class="col-md-8">
+        <ngb-pagination [ellipses]="_ngbPagination.ellipses" [collectionSize]="count" class="d-flex justify-content-end"
+          [(page)]="_ngbPagination.page" [maxSize]="_ngbPagination.maxSize" [rotate]="_ngbPagination.rotate"
+          [boundaryLinks]="_ngbPagination.boundaryLinks" [pageSize]="_ngbPagination.pageSize" (pageChange)="_ngbPagination.pageChange(_ngbPagination.page)"></ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>

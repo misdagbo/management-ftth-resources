@@ -1,0 +1,13 @@
+<div class="__bar">
+  <div class="row" style="margin-left: -12px;margin-right: -12px;" *ngIf="_item && _item.id > 0">
+    <div class="col-md-6">
+      <span style="font-weight:500;text-shadow: 0 1px 2px rgba(74, 74, 74, 0.5);">{{_item.oltNom}}</span><i class="fa fa-circle __circle"></i>{{_item.oltModele}}<i
+        class="fa fa-circle __circle"></i>{{_item.oltType}}
+    </div>
+    <div class="col-md-6" align="right" *ngIf="_item && _item.id > 0">
+      NRO<i class="fa fa-circle __circle"></i><span style="font-weight:500;text-shadow: 0 1px 2px rgba(74, 74, 74, 0.5);">{{_item.oltNro}}
+      </span>&nbsp;&nbsp;<span style="cursor: pointer;" class="fa fa-map"></span>
+    </div>
+  </div>
+</div>
+<ng-template ui-view></ng-template>

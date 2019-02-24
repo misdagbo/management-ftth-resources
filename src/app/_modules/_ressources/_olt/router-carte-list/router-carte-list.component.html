@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_routerCarteList.isRefresh" [sz-table]="_routerCarteList.szTable" [is-create]="_routerCarteList.isCreate"
+  [is-header]="_routerCarteList.isHeader" [is-take-all]="_routerCarteList.isTakeAll" [is-deleted]="_routerCarteList.isDeleted"
+  [(index)]="_routerCarteList.index" [(size)]="_routerCarteList.size" [(count)]="_routerCarteList.count" [data-source]="_routerCarteList.dataSource"
+  [columns]="_routerCarteList.columns" (onCreate)="_routerCarteList.doCreate($event)" (onModify)="_routerCarteList.doModify($event)"
+  (onDelete)="_routerCarteList.doDelete($event)" (onRefresh)="_routerCarteList.doLoad($event)" (onPageChange)="_routerCarteList.doLoad($event)"
+  (onSearch)="_routerCarteList.doLoad($event)">
+</helper-advanced-table>

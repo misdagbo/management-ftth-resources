@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "helper": [
+        "dist/helper"
+      ],
+      "helper/*": [
+        "dist/helper/*"
+      ],
+      "web": [
+        "dist/web"
+      ],
+      "web/*": [
+        "dist/web/*"
+      ]
+    }
+  }
+}

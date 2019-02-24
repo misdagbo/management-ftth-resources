@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Ajouter une carte
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormRouterCarte="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12 form-group m-form__group">
+        <label for="router">BNG</label>
+        <input type="text" name="router" upper-case [(ngModel)]="_routerCarte.oltRouterNom" class="form-control form-control-sm m-input m-input--square"
+          readonly>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="numero">Slot <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <select name="numero" class="form-control m-input form-control-sm m-input--square" [(ngModel)]="_routerCarte.numero"
+          required>
+          <option [value]="slot" *ngFor="let slot of _slotArray">{{slot}}</option>
+        </select>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="modele">Modèle <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <select class="form-control m-input form-control-sm m-input--square" (change)="doChangeModele()" name="modele"
+          [(ngModel)]="_modele" required>
+          <option [ngValue]="modele" *ngFor="let modele of _modeleArray">{{modele.reference}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormRouterCarte.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

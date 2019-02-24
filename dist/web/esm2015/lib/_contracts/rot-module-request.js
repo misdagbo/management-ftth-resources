@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { Request } from 'helper';
+export class RotModuleRequest extends Request {
+}
+function RotModuleRequest_tsickle_Closure_declarations() {
+    /** @type {?} */
+    RotModuleRequest.prototype.datasRfoRotPortModule;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicm90LW1vZHVsZS1yZXF1ZXN0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vd2ViLyIsInNvdXJjZXMiOlsibGliL19jb250cmFjdHMvcm90LW1vZHVsZS1yZXF1ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLEVBQUUsT0FBTyxFQUFFLE1BQU0sUUFBUSxDQUFDO0FBSWpDLE1BQU0sdUJBQXdCLFNBQVEsT0FBa0I7Q0FJdkQiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBSZXF1ZXN0IH0gZnJvbSAnaGVscGVyJztcbmltcG9ydCB7IFJvdE1vZHVsZSB9IGZyb20gJy4uL19kdG9zL3JvdC1tb2R1bGUnO1xuaW1wb3J0IHsgUm90UG9ydCB9IGZyb20gJy4uL19kdG9zL3JvdC1wb3J0JztcblxuZXhwb3J0IGNsYXNzIFJvdE1vZHVsZVJlcXVlc3QgZXh0ZW5kcyBSZXF1ZXN0PFJvdE1vZHVsZT4ge1xuXG4gICAgcHVibGljIGRhdGFzUmZvUm90UG9ydE1vZHVsZTogQXJyYXk8Um90UG9ydD47XG5cbn1cbiJdfQ==

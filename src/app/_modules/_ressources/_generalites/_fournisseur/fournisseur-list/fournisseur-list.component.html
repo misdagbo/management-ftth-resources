@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_fournisseurList.isRefresh" [sz-table]="_fournisseurList.szTable" [sz-search]="_fournisseurList.szSearch"
+  [is-create]="_fournisseurList.isCreate" [is-header]="_fournisseurList.isHeader" [is-search]="_fournisseurList.isSearch"
+  [is-modify]="_fournisseurList.isModify" [is-take-all]="_fournisseurList.isTakeAll" [(index)]="_fournisseurList.index"
+  [(size)]="_fournisseurList.size" [(count)]="_fournisseurList.count" [data-source]="_fournisseurList.dataSource"
+  [columns]="_fournisseurList.columns" (onCreate)="_fournisseurList.doCreate($event)" (onModify)="_fournisseurList.doModify($event)"
+  (onRefresh)="_fournisseurList.doLoad($event)" (onPageChange)="_fournisseurList.doLoad($event)" (onSearch)="_fournisseurList.doLoad($event)">
+</helper-advanced-table>

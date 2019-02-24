@@ -1,0 +1,84 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Allumage TTT
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormTttAllumage="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6 form-group m-form__group">
+        <label for="cableTransport">Câble de transport <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <select class="form-control m-input form-control-sm m-input--square" (change)="doLoadFibreTransport(_cableTransport)"
+          name="cableTransport" [(ngModel)]="_cableTransport" required>
+          <option [ngValue]="cableTransport" *ngFor="let cableTransport of _cableTransportArray">{{
+            cableTransport.numero }}</option>
+        </select>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="ttt">TTT </label>
+        <input type="text" name="ttt" upper-case [(ngModel)]="_ttt.numero" class="form-control form-control-sm m-input m-input--square"
+          readonly>
+      </div>
+      <div class="col-5 form-group m-form__group" style="padding-right: 0;">
+        <h6><label>Fibre transport</label></h6>
+        <div class="table-cell">
+          <table class="table-maverix table-maverix-small">
+            <tbody>
+              <tr [class.selected]="fibreCableTransport.selected" *ngFor="let fibreCableTransport of _fibreCableTransportArray;let i = index;"
+                (click)="doSelectFibreCableTransport(fibreCableTransport)">
+                <td>{{ fibreCableTransport.numero }}</td>
+                <td class="text-right">{{ fibreCableTransport.paramCouleurLibelle }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-2 form-group m-form__group hero-callout" style="padding: 0;" align="center">
+        <div class="inner">
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doAdd()" [class.disabled]="!_cableTransport || (_cableTransport && _cableTransport.id === 0)">
+              <i class="fa fa-chevron-right" style="font-size: 11px;"></i>
+            </a>
+          </div>
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doRemove()" [class.disabled]="!_fibreTttPortArray || (_fibreTttPortArray && _fibreTttPortArray.length === 0)">
+              <i class="fa fa-chevron-left" style="font-size: 11px;"></i>
+            </a>
+          </div>
+          <div class="col-12" style="margin-bottom: 5px;">
+            <a class="toolbar-button" href="" (click)="doRemoveAll()" [class.disabled]="!_fibreTttPortArray || (_fibreTttPortArray && _fibreTttPortArray.length === 0)">
+              <i class="fa fa-backward" style="font-size: 11px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 form-group m-form__group" style="padding-left: 0;">
+        <h6><label>Fibre TTT</label></h6>
+        <div class="table-cell">
+          <table class="table-maverix table-maverix-small">
+            <tbody>
+              <tr [class.selected]="fibreTttPort.selected" *ngFor="let fibreTttPort of _fibreTttPortArray;" (click)="doSelectFibreTttPort(fibreTttPort)">
+                <td>{{ fibreTttPort.numero }}</td>
+                <td class="text-right">{{ fibreTttPort.paramCouleurLibelle }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormTttAllumage.form.valid || !_fibreTttPortArray || (_fibreTttPortArray && _fibreTttPortArray.length === 0)"
+      class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

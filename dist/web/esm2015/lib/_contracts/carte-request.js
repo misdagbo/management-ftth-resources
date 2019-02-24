@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { Request } from 'helper';
+export class CarteRequest extends Request {
+}
+function CarteRequest_tsickle_Closure_declarations() {
+    /** @type {?} */
+    CarteRequest.prototype.datasOltPortPhysique;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2FydGUtcmVxdWVzdC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL3dlYi8iLCJzb3VyY2VzIjpbImxpYi9fY29udHJhY3RzL2NhcnRlLXJlcXVlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxPQUFPLEVBQUUsTUFBTSxRQUFRLENBQUM7QUFJakMsTUFBTSxtQkFBb0IsU0FBUSxPQUFjO0NBSS9DIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUmVxdWVzdCB9IGZyb20gJ2hlbHBlcic7XG5pbXBvcnQgeyBDYXJ0ZSB9IGZyb20gJy4uL19kdG9zL2NhcnRlJztcbmltcG9ydCB7IFBvcnQgfSBmcm9tICcuLi9fZHRvcy9wb3J0JztcblxuZXhwb3J0IGNsYXNzIENhcnRlUmVxdWVzdCBleHRlbmRzIFJlcXVlc3Q8Q2FydGU+IHtcblxuICAgIHB1YmxpYyBkYXRhc09sdFBvcnRQaHlzaXF1ZTogQXJyYXk8UG9ydD47XG5cbn1cbiJdfQ==

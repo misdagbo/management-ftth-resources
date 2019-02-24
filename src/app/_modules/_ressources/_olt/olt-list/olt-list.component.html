@@ -1,0 +1,6 @@
+<helper-advanced-table [is-refresh]="_oltList.isRefresh" [sz-table]="_oltList.szTable" [sz-search]="_oltList.szSearch"
+  [is-search]="_oltList.isSearch" [is-create]="_oltList.isCreate" [is-modify]="_oltList.isModify" [is-take-all]="_oltList.isTakeAll"
+  [(index)]="_oltList.index" [(size)]="_oltList.size" [(count)]="_oltList.count" [data-source]="_oltList.dataSource"
+  [columns]="_oltList.columns" (onCreate)="_oltList.doCreate($event)" (onModify)="_oltList.doModify($event)" (onSearch)="_oltList.doLoad($event)"
+  (onRefresh)="_oltList.doLoad($event)" (onPageChange)="_oltList.doLoad($event)" (onSelect)="_oltList.doSelect($event)">
+</helper-advanced-table>

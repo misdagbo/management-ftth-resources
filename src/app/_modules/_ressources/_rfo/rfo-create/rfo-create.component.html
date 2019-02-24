@@ -1,0 +1,60 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    Créer un RFO
+  </h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="_ngbActiveModal.dismiss()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+<form (ngSubmit)="onSubmit()" #ngFormRfo="ngForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6 form-group m-form__group">
+        <label for="nom">Nom <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i>
+          (Masque de saisie: XXX)
+        </label>
+        <input type="text" name="nom" upper-case mask="AAA" [(ngModel)]="_rfo.nom" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="type">Type <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <select class="form-control m-input form-control-sm m-input--square" name="type" [(ngModel)]="_rfo.type"
+          required>
+          <option value='LOCAL'>LOCAL</option>
+          <option value='DISTANT'>DISTANT</option>
+        </select>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="nro">NRO <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <select class="form-control m-input form-control-sm m-input--square" name="nro" [(ngModel)]="_nro" required>
+          <option [ngValue]="nro" *ngFor="let nro of _nroArray">{{nro.libelle}}</option>
+        </select>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="commune">Commune</label>
+        <input type="text" name="commune" upper-case [(ngModel)]="_nro.paramCommuneLibelle" class="form-control form-control-sm m-input m-input--square"
+          readonly>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="latitude">Latitude <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="latitude" [(ngModel)]="_rfo.latitude" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+      <div class="col-6 form-group m-form__group">
+        <label for="longitude">Longitude <i class="fa fa-asterisk" style="color:#e9573f;font-size: 10px;"></i></label>
+        <input type="text" name="longitude" [(ngModel)]="_rfo.longitude" class="form-control form-control-sm m-input m-input--square"
+          required>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" (click)="_ngbActiveModal.dismiss()">
+      Annuler
+    </button>
+    <button type="submit" [disabled]="!ngFormRfo.form.valid" class="btn btn-primary btn-sm">
+      Enregistrer
+    </button>
+  </div>
+</form>

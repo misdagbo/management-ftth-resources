@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_routerList.isRefresh" [sz-table]="_routerList.szTable" [sz-search]="_routerList.szSearch"
+  [is-search]="_routerList.isSearch" [is-create]="_routerList.isCreate" [is-modify]="_routerList.isModify"
+  [is-take-all]="_routerList.isTakeAll" [(index)]="_routerList.index" [(size)]="_routerList.size" [(count)]="_routerList.count"
+  [data-source]="_routerList.dataSource" [columns]="_routerList.columns" (onRefresh)="_routerList.doLoad($event)"
+  (onCreate)="_routerList.doCreate($event)" (onModify)="_routerList.doModify($event)" (onPageChange)="_routerList.doLoad($event)"
+  (onSearch)="_routerList.doLoad($event)">
+</helper-advanced-table>

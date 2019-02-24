@@ -1,0 +1,7 @@
+<helper-advanced-table [is-refresh]="_offreList.isRefresh" [sz-table]="_offreList.szTable" [sz-search]="_offreList.szSearch"
+  [is-create]="_offreList.isCreate" [is-header]="_offreList.isHeader" [is-search]="_offreList.isSearch" [is-modify]="_offreList.isModify"
+  [is-take-all]="_offreList.isTakeAll" [(index)]="_offreList.index" [(size)]="_offreList.size" [(count)]="_offreList.count"
+  [data-source]="_offreList.dataSource" [columns]="_offreList.columns" (onCreate)="_offreList.doCreate($event)"
+  (onModify)="_offreList.doModify($event)" (onRefresh)="_offreList.doLoad($event)" (onPageChange)="_offreList.doLoad($event)"
+  (onSearch)="_offreList.doLoad($event)">
+</helper-advanced-table>

@@ -1,0 +1,68 @@
+<div class="col-12" style="padding: 0;">
+  <div class="toolbar">
+    <div style="float: left">
+      <a class="toolbar-button" href="" (click)="doBack()">
+        <span class="fa fa-reply" style="font-size: 11px;"></span>
+      </a>
+      <a class="toolbar-button" href="" (click)="doList()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        List
+      </a>
+      <a class="toolbar-button" [class.disabled]="1 === 1 ? true: null" href="" (click)="doTurnOn()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        Allumer
+      </a>
+      <a class="toolbar-button" [class.disabled]="true" href="" (click)="doTurnOff()" style="padding: 3px 10px;border-radius: 1px;font-size:12px;font-weight: 400;">
+        Eteindre
+      </a>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)" style="padding: 0;font-size: 12px;">
+  <div class="mCustomScrollbar" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 73)">
+    <div class="row" style="margin-right: 0;margin-left: 0;">
+      <div class="col-6" style="padding: 0;">
+        <div class="socicons" style="padding-top: 5px;" *ngIf="_routerArray && _routerArray.length > 0">
+          <a href="#" *ngFor="let router of _routerArray" class="socicon-btn tooltips" (click)="doLoadCarte(router)"
+            [class.__active_btn]="router.id === _routerSelected.id">
+            <img src="../../../../../assets/app/media/img/icons/iconfinder_wifi_modem_Vista_186243.png" style="margin-top: -1px;margin-left: -1px;margin-bottom: 5px;" />
+            <br />
+            <span style="font-weight: 500;">{{ router.nom }}</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-6" style="padding: 0;border-left: 1px solid #c2c2c2;">
+        <div class="hero-callout" [style.height.px]="(_screenHeight - (_screenHeight * (50/100)) - 75)">
+          <div class="inner">
+            <table style="background: #f9f9f9;" *ngIf="_routerSlotArray && _routerSlotArray.length > 0">
+              <tbody>
+                <tr class="chassis" *ngFor="let slot of _routerSlotArray">
+                  <td class="slot" style="text-align: center;background-color: #e5e5e5;border: none;border-right: 1px solid #777777;">
+                    <span style="font-weight: bold;">{{ slot.numero }}</span>
+                  </td>
+                  <td class="slot" style="border-right: 1px solid #777777;">
+                    <ul class="node-content">
+                      <li class="port" (click)="doSelectRouterPort($event, port)" style="cursor: pointer;" *ngFor="let port of slot.itemsOltRouterPort">
+                        <span style="font-size: 10px;">{{ port.numero }}&nbsp;</span>
+                        <span class="port-off" *ngIf="port.paramEtatLibelle === 'ETEINT' && (!_routerPortSelected || (_routerPortSelected && port.id !== _routerPortSelected.id))"></span>
+                        <span class="port-connected" *ngIf="(port.paramEtatLibelle === 'ALLUME') && (!_routerPortSelected || (_routerPortSelected && port.id !== _routerPortSelected.id)) && (port.oltLink !== _oltLinkSelected.id)"></span>
+                        <span class="port-linked" *ngIf="_routerPortSelected && port.id === _routerPortSelected.id && !port.oltLink"></span>
+                        <span class="led-yellow" *ngIf="port.oltLink === _oltLinkSelected.id && port.paramEtatLibelle === 'ALLUME'"></span>
+                      </li>
+                    </ul>
+                  </td>
+                  <td class="slot" style="text-align: center;background-color: #e5e5e5;width: 10px;border: none;">
+                    <span style="font-weight: bold;cursor: pointer;"></span>
+                  </td>
+                </tr>
+                <tr class="chassis" style="border-bottom:none;">
+                  <td class="slot" colspan="3" style="height: 30px;">
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
